@@ -22,7 +22,7 @@ jobs:
           script: |
             const { issue: { number: issue_number }, repo: { owner, repo }  } = context;
             const randTime = async () => {
-              randomTime = Math.random() * 10 + 10;
+              let randomTime = Math.random() * 10 + 10;
               await sleep(randomTime*1000)
             }
-            github.issues.createComment({ issue_number, owner, repo, body: `The CI took ${randomTime} seconds` });
+            github.issues.createComment({ issue_number, owner, repo, body: `The CI took ${randTime} seconds` });
